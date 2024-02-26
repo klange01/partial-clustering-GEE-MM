@@ -76,38 +76,38 @@ real2_null_GeeMix_BalExch = real2_null_GeeMix %>%
 
 # use simsum() to compute the performance measures for each scenario
 # set 1
-rs31 = simsum(data = real1_GeeMix_IndInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+rs31 = simsum(data = real1_GeeMix_IndInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
               methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-rs41 = simsum(data = real1_GeeMix_IndExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+rs41 = simsum(data = real1_GeeMix_IndExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
               methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-rs51 = simsum(data = real1_GeeMix_BalInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+rs51 = simsum(data = real1_GeeMix_BalInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
               methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-rs61 = simsum(data = real1_GeeMix_BalExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+rs61 = simsum(data = real1_GeeMix_BalExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
               methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-nrs31 = simsum(data = real1_null_GeeMix_IndInd, estvarname = "b1", true = "trueb1", se = "se_b1", dropbig = TRUE,
+nrs31 = simsum(data = real1_null_GeeMix_IndInd, estvarname = "b1", true = "trueb1", se = "se_b1", dropbig = FALSE,
                methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-nrs41 = simsum(data = real1_null_GeeMix_IndExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+nrs41 = simsum(data = real1_null_GeeMix_IndExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
                methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-nrs51 = simsum(data = real1_null_GeeMix_BalInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+nrs51 = simsum(data = real1_null_GeeMix_BalInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
                methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-nrs61 = simsum(data = real1_null_GeeMix_BalExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+nrs61 = simsum(data = real1_null_GeeMix_BalExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
                methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
 # set 2
-rs32 = simsum(data = real2_GeeMix_IndInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+rs32 = simsum(data = real2_GeeMix_IndInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
               methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-rs42 = simsum(data = real2_GeeMix_IndExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+rs42 = simsum(data = real2_GeeMix_IndExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
               methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-rs52 = simsum(data = real2_GeeMix_BalInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+rs52 = simsum(data = real2_GeeMix_BalInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
               methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-rs62 = simsum(data = real2_GeeMix_BalExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+rs62 = simsum(data = real2_GeeMix_BalExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
               methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-nrs32 = simsum(data = real2_null_GeeMix_IndInd, estvarname = "b1", true = "trueb1", se = "se_b1", dropbig = TRUE,
+nrs32 = simsum(data = real2_null_GeeMix_IndInd, estvarname = "b1", true = "trueb1", se = "se_b1", dropbig = FALSE,
                methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-nrs42 = simsum(data = real2_null_GeeMix_IndExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+nrs42 = simsum(data = real2_null_GeeMix_IndExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
                methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-nrs52 = simsum(data = real2_null_GeeMix_BalInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+nrs52 = simsum(data = real2_null_GeeMix_BalInd, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
                methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
-nrs62 = simsum(data = real2_null_GeeMix_BalExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = TRUE,
+nrs62 = simsum(data = real2_null_GeeMix_BalExch, estvarname = "b1", true = "trueb1_v2", se = "se_b1", dropbig = FALSE,
                methodvar = "model", by=c("Probability of a pair", "ICC", "Effect size"))
 
 

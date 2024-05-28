@@ -1,7 +1,6 @@
-########################################################################
-### Nested loop plot comparing analysis methods, separate by DE & rand
-### Modified from rsimsum package by Gasparini & White
-########################################################################
+# Nested loop plot comparing analysis methods.
+# Modified version of nlp() from the 'rsimsum' package (Gasparini & White 2022, https://CRAN.R-project.org/package=rsimsum)
+# kylie.lange@adelaide.edu.au
 
 ## Check and install required packages
 req_packages <- c("ggplot2","ggpubr","grid","gridExtra","cowplot","egg")
@@ -12,7 +11,7 @@ if(!all(installed_pack)){install.packages(req_packages[installed_pack==F], repos
 #' @keywords internal
 .nlp2 <- function(data, methodvar, by, stats, target, top, linewidth=1,
                   pcol=NULL, ylab=stats, mlab=NULL, pheight=c(7,3), y.lim=c(NA,NA),
-                  pgridwidth=0.2, pytickwidth=0.2, pborderwidth=0.3, ltextsize=4, ltitle="Analysis method") {
+                  pgridwidth=0.2, pytickwidth=0.2, pborderwidth=0.3, ltextsize=6, ltitle="Analysis method") {
   ### Compute internal data
   opts <- lapply(X = by, FUN = function(x) levels(data[[x]]))
   names(opts) <- by
@@ -78,7 +77,10 @@ if(!all(installed_pack)){install.packages(req_packages[installed_pack==F], repos
     scale_color_manual(name = ltitle, labels = mlab, values = pcol)
   }
   gg2 <- gg2 +
-    ggplot2::labs(x = "Simulation scenarios", y = ylab)
+    ggplot2::labs(x = "Simulation scenarios", y = ylab) +
+    theme(axis.title.x=element_text(size=2),
+          axis.title.y=element_text(size=20))
+    
   
   ### Build and add legends of nested loop plot
   for (i in seq_along(by)) {
@@ -87,7 +89,7 @@ if(!all(installed_pack)){install.packages(req_packages[installed_pack==F], repos
       ggplot2::geom_step(mapping = ggplot2::aes(y = !!.tmp), linewidth = linewidth-0.15) +
       ggplot2::annotate(geom = "text", x = 1, y = placement[[i]][2] + delta / 2,
                         label = paste0(by[i], ": ", paste(levels(data[[by[i]]]), collapse = ", ")),
-                        hjust = 0, vjust = 0.5, size = 1.2) +
+                        hjust = 0, vjust = 0.5, size = 1.7) +
       theme_bw() +
       theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(),
             axis.line.y = element_blank(), axis.title.y = element_text(colour="white"),
@@ -100,9 +102,8 @@ if(!all(installed_pack)){install.packages(req_packages[installed_pack==F], repos
   }
   
   ### Put legend at bottom (for combined plots)
-  top_legend <- get_legend(gg) #grab legend of top plot
-  gg <- gg + theme(legend.position = "none", text = element_text(size = 4)) #remove legend from top plot
-  
+  top_legend <- get_plot_component(gg, 'guide-box-bottom', return_all = TRUE) #grab legend of top plot
+  gg <- gg + theme(legend.position = "none", text = element_text(size = 4))   #remove legend from top plot
   #gg_out <- ggarrange(gg,gg2,nrow=2,heights=pheight,common.legend=T,legend="bottom",align="h")
   gg_out <- egg::ggarrange(gg, gg2, plot_grid(top_legend), nrow = 3, heights = c(pheight-0.025,0.5))
   

@@ -105,7 +105,7 @@ suppT6 = flextable(data = sing) %>%
   fontsize(part="footer", size=9)
 
 ## Power (Supp Table 7)
-# data shown in Figure 1
+# data presented in Figure 1
 
 power1 = pd1 %>%
   mutate(rand_method = "cluster",
@@ -147,13 +147,13 @@ suppT7 = flextable(data = power_data) %>%
   colformat_double(j = c("cluster_geeglm", "cluster_mixed", "ind_geeglm", "ind_mixed", "opp_geeglm", "opp_mixed"), digits=3) %>% 
   line_spacing(space=0.5) %>% 
   add_footer_lines("GEE = generalised estimating equation, DE = design effect, ES = minimum clinically important effect size, ICC = intracluster correlation coefficient, P(pair) = probability of a paired cluster") %>% 
-  add_footer_lines("The reported results for each method of analysis (GEE independence, GEE exchangeable and mixed effects model) exclude datasets where the analysis model did not converge.") %>% 
+  add_footer_lines("The reported results for each method of analysis (GEE independence, GEE exchangeable and mixed effects model) exclude datasets where the analysis model did not converge. Shaded rows are the scenarios selected for the exploratory analysis focused on the more realistic scenarios (Supplementary Material section 1.1)") %>% 
   fontsize(size=9) %>% 
   fontsize(part="header", size=10) %>% 
   fontsize(part="footer", size=9)
 
 ## Coverage (Supp Table 8)
-# data shown in Figure 2
+# data presented in Figure 2
 
 cover1 = cd1 %>%
   mutate(rand_method = "cluster",
@@ -195,13 +195,13 @@ suppT8 = flextable(data = cover_data) %>%
   colformat_double(j = c("cluster_geeglm", "cluster_mixed", "ind_geeglm", "ind_mixed", "opp_geeglm", "opp_mixed"), digits=3) %>% 
   line_spacing(space=0.5) %>% 
   add_footer_lines("GEE = generalised estimating equation, DE = design effect, ES = minimum clinically important effect size, ICC = intracluster correlation coefficient, P(pair) = probability of a paired cluster") %>% 
-  add_footer_lines("The reported results for each method of analysis (GEE independence, GEE exchangeable and mixed effects model) exclude datasets where the analysis model did not converge.") %>% 
+  add_footer_lines("The reported results for each method of analysis (GEE independence, GEE exchangeable and mixed effects model) exclude datasets where the analysis model did not converge. Shaded rows are the scenarios selected for the exploratory analysis focused on the more realistic scenarios (Supplementary Material section 1.1)") %>% 
   fontsize(size=9) %>% 
   fontsize(part="header", size=10) %>% 
   fontsize(part="footer", size=9)
 
 ## Coverage in small samples (Supp Table 9)
-# data shown in Figure 3
+# data presented in Figure 3
 
 smcover1 = scd1 %>%
   mutate(rand_method = "cluster",
@@ -250,7 +250,7 @@ suppT9 = flextable(data = smcover_data) %>%
   fontsize(part="footer", size=9)
 
 ## Relative error (Supp Table 10)
-# data shown in Supp Figure 1
+# data presented in Supp Figure 1
 
 relerror1 = rd1 %>%
   mutate(rand_method = "cluster",
@@ -292,13 +292,13 @@ suppT10 = flextable(data = relerror_data) %>%
   colformat_double(j = c("cluster_geeglm", "cluster_mixed", "ind_geeglm", "ind_mixed", "opp_geeglm", "opp_mixed"), digits=2) %>% 
   line_spacing(space=0.5) %>% 
   add_footer_lines("GEE = generalised estimating equation, DE = design effect, ES = minimum clinically important effect size, ICC = intracluster correlation coefficient, P(pair) = probability of a paired cluster") %>% 
-  add_footer_lines("The reported results for each method of analysis (GEE independence, GEE exchangeable and mixed effects model) exclude datasets where the analysis model did not converge.") %>% 
+  add_footer_lines("The reported results for each method of analysis (GEE independence, GEE exchangeable and mixed effects model) exclude datasets where the analysis model did not converge. Shaded rows are the scenarios selected for the exploratory analysis focused on the more realistic scenarios (Supplementary Material section 1.1)") %>% 
   fontsize(size=9) %>% 
   fontsize(part="header", size=10) %>% 
   fontsize(part="footer", size=9)
 
 ## Type I error (Supp Table 11)
-# data shown in Supp Figure 2
+# data presented in Supp Figure 2
 
 t1err1 = npd1 %>%
   mutate(rand_method = "cluster",
@@ -340,17 +340,41 @@ suppT11 = flextable(data = t1err_data) %>%
   colformat_double(j = c("cluster_geeglm", "cluster_mixed", "ind_geeglm", "ind_mixed", "opp_geeglm", "opp_mixed"), digits=3) %>% 
   line_spacing(space=0.5) %>% 
   add_footer_lines("GEE = generalised estimating equation, DE = design effect, ES = minimum clinically important effect size, ICC = intracluster correlation coefficient, P(pair) = probability of a paired cluster") %>% 
-  add_footer_lines("The reported results for each method of analysis (GEE independence, GEE exchangeable and mixed effects model) exclude datasets where the analysis model did not converge.") %>% 
+  add_footer_lines("The reported results for each method of analysis (GEE independence, GEE exchangeable and mixed effects model) exclude datasets where the analysis model did not converge. Shaded rows are the scenarios selected for the exploratory analysis focused on the more realistic scenarios (Supplementary Material section 1.1)") %>% 
   fontsize(size=9) %>% 
   fontsize(part="header", size=10) %>% 
   fontsize(part="footer", size=9)
 
 ## Performance measures of exchangeable GEE, excluding non-positive definite results (Supp Table 12)
-# data shown in Supp Figure 7
+# data presented in Supp Figure 7
 
+typeIerr = pdn %>% mutate(stat = "typeI")
+npd_data = bind_rows(pdr, pdc, typeIerr, pdp) %>% 
+  pivot_wider(id_cols=c(stat, "Effect size", ICC, "Probability of a pair"), names_from = c(rand_method), values_from = est) %>% 
+  mutate(stat = case_when(stat == "relerror" ~ "relative error",
+                          stat == "cover" ~ "coverage",
+                          stat == "typeI" ~ "type I error",
+                          stat == "power" ~ "power"))
+
+suppT12 = flextable(data = npd_data) %>%
+  set_caption("Supplementary Table 12: Performance measures of the exchangeable GEE, excluding non-positive definite model results") %>% 
+  add_header_row(colwidths = c(4, 3), values = c("", "Randomisation method")) %>% 
+  set_header_labels(values = list(stat = "Performance measure", "Effect size" = "ES", "Probability of a pair" = "P(pair)",
+                                  cluster = "Cluster", ind = "Individual", opp = "Balanced")) %>% 
+  merge_v(j = ~ stat) %>% 
+  align(align = "center", part = "header") %>% 
+  vline(j = 4) %>% 
+  hline(i = seq(4, 72, by=4)) %>% 
+  colformat_double(j = c("cluster", "ind", "opp"), digits=3) %>% 
+  line_spacing(space=0.5) %>% 
+  add_footer_lines("ES = minimum clinically important effect size, ICC = intracluster correlation coefficient, P(pair) = probability of a paired cluster. For type I error, effect size = effect size used in calculating the scenario sample size") %>% 
+  add_footer_lines("The reported results exclude datasets where the GEE did not converge.") %>% 
+  fontsize(size=9) %>% 
+  fontsize(part="header", size=10) %>% 
+  fontsize(part="footer", size=9)
 
 ## Type I error rates in small samples (Supp Table 13)
-# data shown in Supp Figure 8
+# data presented in Supp Figure 8
 
 smt1error1 = std1 %>%
   mutate(rand_method = "cluster",
@@ -399,7 +423,7 @@ suppT13 = flextable(data = smt1error_data) %>%
   fontsize(part="footer", size=9)
 
 ## Power in small samples (Supp Table 14)
-# data shown in Supp Figure 9
+# data presented in Supp Figure 9
 
 smpower1 = spd1 %>%
   mutate(rand_method = "cluster",
@@ -448,7 +472,7 @@ suppT14 = flextable(data = smpower_data) %>%
   fontsize(part="footer", size=9)
 
 ## Relative error in small samples (Supp Table 15)
-# data shown in Supp Figure 10
+# data presented in Supp Figure 10
 
 smrelerr1 = srd1 %>%
   mutate(rand_method = "cluster",
@@ -516,6 +540,8 @@ read_docx() %>%
   body_add_flextable(suppT10) %>%
   body_add_break() %>% 
   body_add_flextable(suppT11) %>%
+  body_add_break() %>% 
+  body_add_flextable(suppT12) %>%
   body_add_break() %>% 
   body_add_flextable(suppT13) %>%
   body_add_break() %>% 

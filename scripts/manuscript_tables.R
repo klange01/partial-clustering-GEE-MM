@@ -135,7 +135,7 @@ power_data = bind_rows(power_ind, power_exch) %>%
   relocate(de, .before="Effect size")
 
 suppT7 = flextable(data = power_data) %>%
-  set_caption("Supplementary Table 7: Power of GEEs and mixed models by randomisation methods and GEE working correlation structure") %>% 
+  set_caption("Supplementary Table 7: Power of GEEs and mixed models by randomisation method and GEE working correlation structure") %>% 
   add_header_row(colwidths = c(4, 2, 2, 2), values = c("", "Cluster", "Individual", "Balanced")) %>% 
   add_header_row(colwidths = c(4, 6), values = c("", "Randomisation method")) %>% 
   set_header_labels(values = list(de = "Design effect", "Effect size" = "ES", "Probability of a pair" = "P(pair)", cluster_geeglm = "GEE", cluster_mixed = "Mixed model",
@@ -183,7 +183,7 @@ cover_data = bind_rows(cover_ind, cover_exch) %>%
   relocate(de, .before="Effect size")
 
 suppT8 = flextable(data = cover_data) %>%
-  set_caption("Supplementary Table 8: Coverage of the 95% confidence interval from GEEs and mixed models by randomisation methods and GEE working correlation structure") %>% 
+  set_caption("Supplementary Table 8: Coverage of the 95% confidence interval from GEEs and mixed models by randomisation method and GEE working correlation structure") %>% 
   add_header_row(colwidths = c(4, 2, 2, 2), values = c("", "Cluster", "Individual", "Balanced")) %>% 
   add_header_row(colwidths = c(4, 6), values = c("", "Randomisation method")) %>% 
   set_header_labels(values = list(de = "Design effect", "Effect size" = "ES", "Probability of a pair" = "P(pair)", cluster_geeglm = "GEE", cluster_mixed = "Mixed model",
@@ -231,7 +231,7 @@ smcover_data = bind_rows(smcover_ind, smcover_exch) %>%
   relocate(de, .before="Effect size")
 
 suppT9 = flextable(data = smcover_data) %>%
-  set_caption("Supplementary Table 9: Coverage of the 95% confidence interval from GEEs and mixed models with small sample corrections by randomisation methods and GEE working correlation structure for a subset of scenarios with small sample sizes") %>% 
+  set_caption("Supplementary Table 9: Coverage of the 95% confidence interval from GEEs and mixed models with small sample corrections by randomisation method and GEE working correlation structure for a subset of scenarios with small sample sizes") %>% 
   add_header_row(colwidths = c(4, 2, 2, 2), values = c("", "Cluster", "Individual", "Balanced")) %>% 
   add_header_row(colwidths = c(4, 6), values = c("", "Randomisation method")) %>% 
   set_header_labels(values = list(de = "Design effect", "Effect size" = "ES", "Probability of a pair" = "P(pair)",
@@ -280,7 +280,7 @@ relerror_data = bind_rows(relerror_ind, relerror_exch) %>%
   relocate(de, .before="Effect size")
 
 suppT10 = flextable(data = relerror_data) %>%
-  set_caption("Supplementary Table 10: Relative percent error in the average estimated SE for GEEs and mixed models by randomisation methods and GEE working correlation structure") %>% 
+  set_caption("Supplementary Table 10: Relative percent error in the average estimated SE for GEEs and mixed models by randomisation method and GEE working correlation structure") %>% 
   add_header_row(colwidths = c(4, 2, 2, 2), values = c("", "Cluster", "Individual", "Balanced")) %>% 
   add_header_row(colwidths = c(4, 6), values = c("", "Randomisation method")) %>% 
   set_header_labels(values = list(de = "Design effect", "Effect size" = "ES", "Probability of a pair" = "P(pair)", cluster_geeglm = "GEE", cluster_mixed = "Mixed model",
@@ -328,7 +328,7 @@ t1err_data = bind_rows(t1err_ind, t1err_exch) %>%
   relocate(de, .before="Effect size")
 
 suppT11 = flextable(data = t1err_data) %>%
-  set_caption("Supplementary Table 11: Type I error rates of GEEs and mixed models by randomisation methods and GEE working correlation structure") %>% 
+  set_caption("Supplementary Table 11: Type I error rates of GEEs and mixed models by randomisation method and GEE working correlation structure") %>% 
   add_header_row(colwidths = c(4, 2, 2, 2), values = c("", "Cluster", "Individual", "Balanced")) %>% 
   add_header_row(colwidths = c(4, 6), values = c("", "Randomisation method")) %>% 
   set_header_labels(values = list(de = "Design effect", "Effect size" = "ES", "Probability of a pair" = "P(pair)", cluster_geeglm = "GEE", cluster_mixed = "Mixed model",
@@ -364,7 +364,7 @@ suppT12 = flextable(data = npd_data) %>%
   merge_v(j = ~ stat) %>% 
   align(align = "center", part = "header") %>% 
   vline(j = 4) %>% 
-  hline(i = seq(4, 72, by=4)) %>% 
+  hline(i = seq(4, 144, by=4)) %>% 
   colformat_double(j = c("cluster", "ind", "opp"), digits=3) %>% 
   line_spacing(space=0.5) %>% 
   add_footer_lines("ES = minimum clinically important effect size, ICC = intracluster correlation coefficient, P(pair) = probability of a paired cluster. For type I error, effect size = effect size used in calculating the scenario sample size") %>% 
@@ -404,7 +404,7 @@ smt1error_data = bind_rows(smt1error_ind, smt1error_exch) %>%
   relocate(de, .before="Effect size")
 
 suppT13 = flextable(data = smt1error_data) %>%
-  set_caption("Supplementary Table 13: Type I error rates of GEEs and mixed models with small sample corrections by randomisation methods and GEE working correlation structure for a subset of scenarios with small sample sizes") %>% 
+  set_caption("Supplementary Table 13: Type I error rates of GEEs and mixed models with small sample corrections by randomisation method and GEE working correlation structure for a subset of scenarios with small sample sizes") %>% 
   add_header_row(colwidths = c(4, 2, 2, 2), values = c("", "Cluster", "Individual", "Balanced")) %>% 
   add_header_row(colwidths = c(4, 6), values = c("", "Randomisation method")) %>% 
   set_header_labels(values = list(de = "Design effect", "Effect size" = "ES", "Probability of a pair" = "P(pair)",
@@ -453,7 +453,7 @@ smpower_data = bind_rows(smpower_ind, smpower_exch) %>%
   relocate(de, .before="Effect size")
 
 suppT14 = flextable(data = smpower_data) %>%
-  set_caption("Supplementary Table 14: Power of GEEs and mixed models with small sample corrections by randomisation methods and GEE working correlation structure for a subset of scenarios with small sample sizes") %>% 
+  set_caption("Supplementary Table 14: Power of GEEs and mixed models with small sample corrections by randomisation method and GEE working correlation structure for a subset of scenarios with small sample sizes") %>% 
   add_header_row(colwidths = c(4, 2, 2, 2), values = c("", "Cluster", "Individual", "Balanced")) %>% 
   add_header_row(colwidths = c(4, 6), values = c("", "Randomisation method")) %>% 
   set_header_labels(values = list(de = "Design effect", "Effect size" = "ES", "Probability of a pair" = "P(pair)",
@@ -502,7 +502,7 @@ smrelerr_data = bind_rows(smrelerr_ind, smrelerr_exch) %>%
   relocate(de, .before="Effect size")
 
 suppT15 = flextable(data = smrelerr_data) %>%
-  set_caption("Supplementary Table 15: Relative percent error in the average estimated SE for GEEs and mixed models with small sample corrections by randomisation methods and GEE working correlation structure for a subset of scenarios with small sample sizes") %>% 
+  set_caption("Supplementary Table 15: Relative percent error in the average estimated SE for GEEs and mixed models with small sample corrections by randomisation method and GEE working correlation structure for a subset of scenarios with small sample sizes") %>% 
   add_header_row(colwidths = c(4, 2, 2, 2), values = c("", "Cluster", "Individual", "Balanced")) %>% 
   add_header_row(colwidths = c(4, 6), values = c("", "Randomisation method")) %>% 
   set_header_labels(values = list(de = "Design effect", "Effect size" = "ES", "Probability of a pair" = "P(pair)",

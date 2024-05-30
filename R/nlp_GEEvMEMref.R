@@ -11,7 +11,7 @@ if(!all(installed_pack)){install.packages(req_packages[installed_pack==F], repos
 
 #' @keywords internal
 .nlp2ref <- function(data, methodvar, by, stats, target, reflow, refhigh, top, linewidth=1,
-                     pcol=NULL, ylab=stats, mlab=NULL, pheight=c(7,3), y.lim=c(NA,NA),
+                     pcol=NULL, ylab=stats, mlab=NULL, pheight=c(7,3), y.lim=c(NA,NA), atextsize=10, xtextsize=4,
                      pgridwidth=0.2, pytickwidth=0.2, pborderwidth=0.3, ltextsize=6, ltitle="Analysis method") {
   ### Compute internal data
   opts <- lapply(X = by, FUN = function(x) levels(data[[x]]))
@@ -74,8 +74,8 @@ if(!all(installed_pack)){install.packages(req_packages[installed_pack==F], repos
     theme(axis.line.x = element_blank(), axis.title.x = element_blank(), axis.text.x = element_blank(),
           axis.ticks.x = element_blank(), legend.position = "bottom", plot.margin = unit(c(0.1,0.1,0,0.1),'lines'),
           axis.ticks.y = element_line(linewidth = pytickwidth), panel.grid=element_line(linewidth = pgridwidth),
-          panel.border = element_rect(linewidth = pborderwidth),
-          text=element_text(size=ltextsize)) +
+          panel.border = element_rect(linewidth = pborderwidth), axis.text.y=element_text(size=xtextsize),
+          text=element_text(size=ltextsize), axis.title.y=element_text(size=atextsize)) +
     scale_x_continuous(breaks=seq(1, 72, by=2)) +
     scale_y_continuous(limits=c(y.lim[1],y.lim[2]))
   if(!is.null(pcol)){gg <- gg +
@@ -99,7 +99,7 @@ if(!all(installed_pack)){install.packages(req_packages[installed_pack==F], repos
             axis.ticks.y = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(),
             panel.grid = element_line(linewidth=pgridwidth), panel.border=element_rect(linewidth = pborderwidth),
             legend.position = "bottom", plot.margin = unit(c(0,0.1,0.2,0.1), 'lines'),
-            text = element_text(size = 4)) +
+            text = element_text(size = atextsize)) +
       scale_x_continuous(breaks=seq(1, 72, by=2))
   }
 

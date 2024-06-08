@@ -89,7 +89,7 @@ pp6 = .nlp2(data = pd6, methodvar = s6$methodvar, by = s6$by, stats = "power", t
 # multipanel plot
 plotlist = list(a=row1, b=row2, c=row3, d=col1, e=col2, f=pp1, g=pp2, h=pp3, i=pp4, j=pp5, k=pp6)
 wrap_plots(plotlist, design=layout6)
-ggsave("output/power.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/power.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Coverage (Fig 2)
 reflow_cov = 0.944
@@ -133,7 +133,7 @@ pc6 = .nlp2ref(data = cd6, methodvar = s6$methodvar, by = s6$by, stats = "cover"
 # multipanel plot
 plotlist = list(a=row1, b=row2, c=row3, d=col1, e=col2, f=pc1, g=pc2, h=pc3, i=pc4, j=pc5, k=pc6)
 wrap_plots(plotlist, design=layout6)
-ggsave("output/coverage.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/coverage.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Coverage for small samples (Fig 3)
 # Cluster randomisation: GEE-indp vs mixed model(ind)
@@ -175,7 +175,7 @@ sc6 = .nlp2ref(data = scd6, methodvar = ss6$methodvar, by = ss6$by, stats = "cov
 # multipanel plot
 plotlist = list(a=row1, b=row2, c=row3, d=col1, e=col2, f=sc1, g=sc2, h=sc3, i=sc4, j=sc5, k=sc6)
 wrap_plots(plotlist, design=layout6)
-ggsave("output/smallsample-coverage.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/smallsample-coverage.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Relative error (Supp Fig 1)
 # Cluster randomisation: GEE-indp vs mixed model(ind)
@@ -211,7 +211,7 @@ pr6 = .nlp2(data = rd6, methodvar = s6$methodvar, by = s6$by, stats = "relerror"
 # multipanel plot
 plotlist = list(a=row1, b=row2, c=row3, d=col1, e=col2, f=pr1, g=pr2, h=pr3, i=pr4, j=pr5, k=pr6)
 wrap_plots(plotlist, design=layout6)
-ggsave("output/relative-error.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/relative-error.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Type I error (Supp Fig 2)
 reflow_type1 = 0.044
@@ -255,7 +255,7 @@ tp6 = .nlp2ref(data = npd6, methodvar = ns6$methodvar, by = ns6$by, stats = "pow
 # multipanel plot
 plotlist = list(a=row1, b=row2, c=row3, d=col1, e=col2, f=tp1, g=tp2, h=tp3, i=tp4, j=tp5, k=tp6)
 wrap_plots(plotlist, design=layout6)
-ggsave("output/typeI-error.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/typeI-error.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Power for realistic scenarios (Supp Fig 3)
 # Set 1
@@ -299,7 +299,7 @@ p5 = wrap_plots(rp51, rp52)
 p6 = wrap_plots(rp61, rp62)
 plotlist = list(a=row2, b=row3, d=col1, e=col2, f=p3, g=p4, h=p5, i=p6)
 wrap_plots(plotlist, design=layout4)
-ggsave("output/realistic-scenarios-power.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/realistic-scenarios-power.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Coverage for realistic scenarios (Supp Fig 4)
 reflow_cov = 0.944
@@ -361,7 +361,7 @@ c5 = wrap_plots(rc51, rc52)
 c6 = wrap_plots(rc61, rc62)
 plotlist = list(a=row2, b=row3, d=col1, e=col2, f=c3, g=c4, h=c5, i=c6)
 wrap_plots(plotlist, design=layout4)
-ggsave("output/realistic-scenarios-cover.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/realistic-scenarios-cover.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Relative error for realistic scenarios (Supp Fig 5)
 # Set 1
@@ -413,7 +413,7 @@ r5 = wrap_plots(rr51, rr52)
 r6 = wrap_plots(rr61, rr62)
 plotlist = list(a=row2, b=row3, d=col1, e=col2, f=r3, g=r4, h=r5, i=r6)
 wrap_plots(plotlist, design=layout4)
-ggsave("output/realistic-scenarios-relerror.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/realistic-scenarios-relerror.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Type I error for realistic scenarios (Supp Fig 6)
 # Set 1
@@ -473,7 +473,7 @@ t5 = wrap_plots(tr51, tr52)
 t6 = wrap_plots(tr61, tr62)
 plotlist = list(a=row2, b=row3, d=col1, e=col2, f=t3, g=t4, h=t5, i=t6)
 wrap_plots(plotlist, design=layout4)
-ggsave("output/realistic-scenarios-typeIerror.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/realistic-scenarios-typeIerror.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Performance measures of exchangeable GEE when exclude NPD results (Supp Fig 7)
 # Relative error
@@ -501,7 +501,7 @@ pdpp = .nlp2de(data = pdp, methodvar = pde$methodvar, by = pde$by, stats = "powe
 # multipanel plot
 plotlist = list(f=pdrp, g=pdcp, h=pdnp, i=pdpp)
 wrap_plots(plotlist, design=layoutpd)
-ggsave("output/positive-definite.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/positive-definite.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Type I error of small sample corrections (Supp Fig 8)
 # Cluster randomisation: GEE-indp vs mixed model(ind)
@@ -543,7 +543,7 @@ stp6 = .nlp2ref(data = std6, methodvar = st6$methodvar, by = st6$by, stats = "po
 # multipanel plot
 plotlist = list(a=row1, b=row2, c=row3, d=col1, e=col2, f=stp1, g=stp2, h=stp3, i=stp4, j=stp5, k=stp6)
 wrap_plots(plotlist, design=layout6)
-ggsave("output/smallsample-typeIerror.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/smallsample-typeIerror.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Power of small sample corrections (Supp Fig 9)
 # Cluster randomisation: GEE-indp vs mixed model(ind)
@@ -579,7 +579,7 @@ spp6 = .nlp2(data = spd6, methodvar = sp6$methodvar, by = sp6$by, stats = "power
 # multipanel plot
 plotlist = list(a=row1, b=row2, c=row3, d=col1, e=col2, f=spp1, g=spp2, h=spp3, i=spp4, j=spp5, k=spp6)
 wrap_plots(plotlist, design=layout6)
-ggsave("output/smallsample-power.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/smallsample-power.tiff",height=7.5,width=9,unit="in",dpi=800)
 
 ### Relative error of small sample corrections (Supp Fig 10)
 # Cluster randomisation: GEE-indp vs mixed model(ind)
@@ -615,4 +615,4 @@ srp6 = .nlp2(data = srd6, methodvar = ss6$methodvar, by = ss6$by, stats = "reler
 # multipanel plot
 plotlist = list(a=row1, b=row2, c=row3, d=col1, e=col2, f=srp1, g=srp2, h=srp3, i=srp4, j=srp5, k=srp6)
 wrap_plots(plotlist, design=layout6)
-ggsave("output/smallsample-relerror.png",height=7.5,width=9,unit="in",dpi=800)
+ggsave("output/smallsample-relerror.tiff",height=7.5,width=9,unit="in",dpi=800)

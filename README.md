@@ -1,5 +1,7 @@
 # partial-clustering-GEE-MM
-R code for simulation study comparing GEEs and mixed models for the analysis of partially clustered trials. The accompanying article is currently in preparation.
+R code for simulation study comparing GEEs and mixed models for the analysis of partially clustered trials to accompany the paper:
+
+Lange KM, Sullivan TR, Kasza J, Yelland LN. Performance of mixed effects models and generalized estimating equations for continuous outcomes in partially clustered trials including both independent and paired data. Statistics in Medicine. 2024;1-17. [doi: 10.1002/sim.10201](https://doi.org/10.1002/sim.10201)
 
 ## Files
 **R/:** Functions for generating simulated data, analysing the datasets, and generating nested loop plots.  
